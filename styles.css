@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+    /* COLORS and FONTS */
+    body {
+        background-color: rgb(12, 11, 85);
+        color: black;
+        text-align: center;
+        height: 100%;
+        font-family: sans-serif;
+    }
+    header {
+        display: flex;
+        height: 100px;
+        background: goldenrod;
+        font-size: 150%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar {
+        background-color: rgb(224, 188, 97);
+        padding: 10px 0;
+        z-index: 1;
+        position: relative; /* stacks above any other content */
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar li {
+        margin: 0 15px;
+    }
+
+    .navbar a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(8, 85px);
+        background-color: rgb(12, 11, 85);
+    
+        align-items: stretch;
+    
+        justify-items: stretch;
+    
+      /* start, end, center, stretch, space-around, space-between, space-evenly */
+    
+        align-content: start;
+    
+        justify-content: end;
+    }
+
+    article {
+        grid-column: 2/5;
+        grid-row: 0/9;
+        color: white;
+        background-color: rgb(12, 11, 85);
+        text-align: center;
+        font-size: x-large;
+    }
+
+    aside{
+        grid-column: 1/2;
+        grid-row: 0/9;
+        background-color: rgb(12, 11, 85);
+        text-align: center;
+    }
+    
+    aside img{
+        height: 300px;
+        width: 300px;
+    }
+
+    main {
+        background-color: rgb(12, 11, 85);
+        color: white;
+    }
+
+    main p{
+        padding: 20px;
+    }
+    .card-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    footer {
+        position: fixed; bottom: 0px;
+        width: 100%;
+        height: 2%;
+        background: goldenrod;
+    }
+
+
+
+    .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 400px;
+        margin: 20px;
+        border: 5px solid goldenrod;
+        border-radius: 5px;
+        perspective: 1000px; 
+        overflow: hidden;
+    }
+
+    img{
+        width: 300px;
+        height: 400px;
+    }
+    
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card ul{
+        list-style: none;
+    }
+    
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+    
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+        background-color: #bbb;
+        color: black;
+    }
+    
+    /* Style the back side */
+    .flip-card-back {
+        background-color: goldenrod;
+        color: black;
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-back li{
+        padding-top: 20px;
+    }
+
+
+    /* full screen type layout */
+    @media all and (min-width: 768px) {
+        header {
+            width: 100%;
+        }
+        main {
+            flex: 2;
+            order: 2;
+            /* vh is viewport height, a screen unit */
+            min-height: 80vh;
+        }
+    }
+
+    /* flexbox media query */
+    @media (max-width: 700px){
+        .card-container{
+            flex-wrap: wrap;
+        }
+}
+
+/* grid media query */
+
+@media screen and (max-width: 1400px){
+    article{
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 700px){
+    aside{
+        grid-column: 1/5;
+        grid-row: 0/4;
+    }
+
+    aside img{
+        height: 150px;
+        width: 150px;
+    }
+    
+    article {
+        font-size: small;
+        grid-column: 1/5;
+        grid-row: 3/8;
+    }
+    
+    footer {
+        grid-column: 1/5;
+        grid-row: 8/9;
+        text-align: center;
+        background-color: goldenrod;
+    }
+}
+
+     
